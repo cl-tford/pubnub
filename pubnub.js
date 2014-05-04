@@ -1456,6 +1456,8 @@ function xdr( setup ) {
     options.method   = mode;
     options.agent    = false;
     options.body     = payload;
+    options.headers['Content-Type'] = "application/json; charset=utf-8";
+    options.headers['Content-Length'] = Buffer.byteLength(payload);
 
     require('http').globalAgent.maxSockets = Infinity;
     try {
